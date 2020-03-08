@@ -28,7 +28,6 @@ const useStyles = makeStyles(theme => ({
       },
     },
   }));
-  
 // const useStyles = makeStyles({
 //     root: {
 //       maxWidth: 800,
@@ -39,7 +38,6 @@ export default function MutationWithRender() {
   const classes = useStyles();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
-  
   //const [password, setPassword] = useState('');
 
   return (
@@ -86,7 +84,7 @@ export default function MutationWithRender() {
                 </div>
                 <CardActions>
                     <Button variant="contained" color="secondary" className="btn btn-block" type="submit">
-                    Register
+                      Register
                     </Button>
 
                 </CardActions>

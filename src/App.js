@@ -1,13 +1,22 @@
 import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 // import logo from './logo.svg';
 import './App.css';
 // import Login from './Login';
 import Register from './Register';
+import Page404 from './Page404';
 
 function App() {
   return (
     <div className="App">
-      <Register />
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={Register}/>
+          <Route path="/register" component={Register}/>
+          <Route component={Page404} />
+        </Switch>
+      </BrowserRouter>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

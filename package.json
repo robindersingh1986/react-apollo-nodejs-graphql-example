@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
     "@material-ui/core": "^4.9.5",
     "@material-ui/lab": "^4.0.0-alpha.45",
     "@testing-library/jest-dom": "^4.2.4",
@@ -14,23 +17,37 @@
     "express": "^4.17.1",
     "express-graphql": "^0.9.0",
     "graphql": "^14.6.0",
+    "mongodb": "^3.5.4",
     "nodemon": "^2.0.2",
+    "pm2": "^4.2.3",
     "react": "^16.13.0",
     "react-apollo": "^3.1.3",
     "react-dom": "^16.13.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
-    "uuid": "^7.0.2"
+    "rimraf": "^3.0.2",
+    "uuid": "^7.0.2",
+    "winston": "^3.2.1"
   },
   "scripts": {
-    "startBoth": "concurrently \"npm run graphqlServer\" \"nodemon --exec npm start\"",
-    "graphqlServer": "nodemon ./graphqlServer.js",
-    "start": "react-scripts start",
+    "prod": "concurrently \"npm run build\" \"npm run transpile & npm run server\"",
+    "start": "concurrently \"npm run transpile & npm run server\" \"nodemon --exec npm run client\"",
+    "transpile": "babel ./server --out-dir ./dist-server",
+    "server": "pm2 start ./dist-server -i -f",
+    "clean": "rimraf dist-server",
+    "client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "",
+      "pre-push": ""
+    }
   },
   "browserslist": {
     "production": [
@@ -42,6 +59,16 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "babel-preset-minify": "^0.5.1",
+    "husky": "^4.2.3"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "minify"
     ]
   }
 }

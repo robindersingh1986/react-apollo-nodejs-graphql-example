@@ -5,15 +5,18 @@ This is a client side reactjs application with nodejs express graphql server
 
 npm i
 
-To run app and graphql both
-npm run startBoth
+To run the prod build mode
+npm run prod
+
+To run app and node / graphql / mongodb both
+npm run start
 
 
-(This uses concurrently to run both nodejs graphql server and reactjs client app simultaneously and nodemonto restart app in case of any crashes)
+(This uses concurrently to run both nodejs graphql server and reactjs client app simultaneously and nodemon to restart app in case of any crashes)
 
 
-To run only graphql server
-npm run graphqlServer
+To run only node / graphql / mongodb server
+npm run server
 
 
 ----- Technology Details -----

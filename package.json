@@ -32,9 +32,10 @@
   "scripts": {
     "prod": "concurrently \"npm run build\" \"npm run transpile & npm run server\"",
     "start": "concurrently \"npm run transpile & npm run server\" \"nodemon --exec npm run client\"",
+    "devserver": "npm run transpile & node ./dist-server",
     "transpile": "babel ./server --out-dir ./dist-server",
-    "server": "pm2 start ./dist-server -i -f",
-    "clean": "rimraf dist-server",
+    "server": "node ./dist-server -i -f",
+    "clean": "rimraf ./dist-server",
     "client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 // import Login from './Login';
 import Register from './Register';
+// import List from './List';
 import Page404 from './Page404';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Register}/>
           <Route path="/register" component={Register}/>
+          {/* <Route path="/list" component={List}/> */}
           <Route component={Page404} />
         </Switch>
       </BrowserRouter>

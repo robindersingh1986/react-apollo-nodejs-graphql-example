@@ -14,6 +14,22 @@ NA  : Progressive Web App
 
 ----------------------------------------------------------------------
 ----------------------------------------------------------------------
+
+* 10 March 2020
+>On Server
+
+Added Read from graphql
+
+Added Global object to persist data as long as node server is up
+(Just to understand write concepts, ideally it should persisit to db like mongodb or mysql)
+
+Removed node-cache, pm2
+
+* Next Push : I will do the following
+Show list of users in List component
+Add Delete functionality
+
+----------------------------------------------------------------------
 * 8 march 2020
 To run the prod build mode
 npm run prod
